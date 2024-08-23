@@ -6,6 +6,7 @@ sleep 1
 cat << "EOF" >> /var/spool/cron/crontabs/root
 45 0 * * 5 //root/wrt-backup.sh
 EOF
+
 # 覆盖软件源
 cat << "EOF" > /etc/opkg/distfeeds.conf
 src/gz openwrt_core https://mirrors.tencent.com/lede/snapshots/targets/x86/64/packages
@@ -15,8 +16,10 @@ src/gz openwrt_packages https://mirrors.tencent.com/lede/snapshots/packages/x86_
 src/gz openwrt_routing https://mirrors.tencent.com/lede/snapshots/packages/x86_64/routing
 src/gz openwrt_telephony https://mirrors.tencent.com/lede/snapshots/packages/x86_64/telephony
 EOF
+
 # 覆盖配置文件
 wget -N -P /etc http://192.168.10.2/openwrt/AdGuardHome.yaml
+wget -N -P /usr/bin/AdGuardHome http://192.168.10.2/openwrt/AdGuardHome && chmod 700 /usr/bin/AdGuardHome/AdGuardHome
 wget -O /etc/config/AdGuardHome http://192.168.10.2/openwrt/config/AdGuardHome-ad
 wget -O /etc/config/shadowsocksr http://192.168.10.2/openwrt/config/shadowsocksr-ad
 wget -O /etc/config/mosdns http://192.168.10.2/openwrt/config/mosdns-ad
