@@ -17,6 +17,7 @@ src/gz openwrt_routing https://mirrors.tencent.com/lede/snapshots/packages/x86_6
 src/gz openwrt_telephony https://mirrors.tencent.com/lede/snapshots/packages/x86_64/telephony
 EOF
 
+sleep 2
 # 覆盖配置文件
 wget -N -P /etc http://192.168.10.2/openwrt/AdGuardHome.yaml
 wget -N -P /usr/bin/AdGuardHome http://192.168.10.2/openwrt/AdGuardHome && chmod 700 /usr/bin/AdGuardHome/AdGuardHome
