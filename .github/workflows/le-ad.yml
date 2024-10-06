@@ -15,8 +15,8 @@ name: le-ad
 on:
   repository_dispatch:
   workflow_dispatch:
-  schedule:
-    - cron: 35 20 8 * *
+#  schedule:
+#    - cron: 35 20 8 * *
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
